@@ -77,20 +77,24 @@ describe("Ipv6Address()", function() {
             assert.equal(key, i);
             ++i;
         }
+        assert.equal(i, 8);
         i = 0;
         for(let value of addr.values()) {
             assert.equal(value, i + 10);
             ++i;
         }
+        assert.equal(i, 8);
         i = 0;
         for(let value of addr) {
             assert.equal(value, i + 10);
             ++i;
         }
+        assert.equal(i, 8);
         i = 0;
         for(let entry of addr.entries()) {
             assert.deepEqual(entry, [i, i + 10]);
             ++i;
         }
+        assert.equal(i, 8);
     });
 });
