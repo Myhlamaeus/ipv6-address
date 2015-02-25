@@ -1,7 +1,7 @@
 {
   "name": "ipv6-address",
   "version": "0.0.0",
-  "description": "ipv6-address\r =======",
+  "description": "ipv6-address",
   "main": "dist/cjs.js",
   "scripts": {
     "test": "grunt test",
