@@ -22,10 +22,6 @@ describe("Ipv6Address()", function() {
         assert.equal(addr.length, 8);
     });
 
-    it("should be 0:0:0:0:0:0:0:0 when cast to string", function() {
-        assert.equal(String(addr), "0:0:0:0:0:0:0:0");
-    });
-
     it("should be :: when cast to short string", function() {
         assert.equal(addr.toShortString(), "::");
     });
@@ -52,6 +48,10 @@ describe("Ipv6Address()", function() {
     });
 
     describe("#toString()", function() {
+        it("should be 0:0:0:0:0:0:0:0 when not modified", function() {
+            assert.equal(addr.toString(), "0:0:0:0:0:0:0:0");
+        });
+
         it("should work when parts are modified", function() {
             let arr = new Array(8).fill(0);
 
