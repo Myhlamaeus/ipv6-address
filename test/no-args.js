@@ -66,34 +66,63 @@ describe("Ipv6Address()", function() {
         assert.deepEqual(addr, [1, 2, 3, 4, 5, 6, 7, 8]);
     });
 
-    it("should be iterable", function() {
-        for(let i = 0; i < 8; ++i) {
-            addr[i] = i + 10;
-        }
+    describe("#keys()", function() {
+        it("should work", function() {
+            for(let i = 0; i < 8; ++i) {
+                addr[i] = i + 10;
+            }
 
-        let i = 0;
-        for(let key of addr.keys()) {
-            assert.equal(key, i);
-            ++i;
-        }
-        assert.equal(i, 8);
-        i = 0;
-        for(let value of addr.values()) {
-            assert.equal(value, i + 10);
-            ++i;
-        }
-        assert.equal(i, 8);
-        i = 0;
-        for(let value of addr) {
-            assert.equal(value, i + 10);
-            ++i;
-        }
-        assert.equal(i, 8);
-        i = 0;
-        for(let entry of addr.entries()) {
-            assert.deepEqual(entry, [i, i + 10]);
-            ++i;
-        }
-        assert.equal(i, 8);
+            let i = 0;
+            for(let key of addr.keys()) {
+                assert.equal(key, i);
+                ++i;
+            }
+            assert.equal(i, 8);
+        });
+    });
+
+    describe("#values()", function() {
+        it("should work", function() {
+            for(let i = 0; i < 8; ++i) {
+                addr[i] = i + 10;
+            }
+
+            let i = 0;
+            for(let val of addr.values()) {
+                assert.equal(val, i + 10);
+                ++i;
+            }
+            assert.equal(i, 8);
+        });
+    });
+
+    describe("#[Symbol.iterator]()", function() {
+        it("should work", function() {
+            for(let i = 0; i < 8; ++i) {
+                addr[i] = i + 10;
+            }
+
+            let i = 0;
+            for(let val of addr) {
+                assert.equal(val, i + 10);
+                ++i;
+            }
+            assert.equal(i, 8);
+        });
+    });
+
+    describe("#entries()", function() {
+        it("should work", function() {
+            for(let i = 0; i < 8; ++i) {
+                addr[i] = i + 10;
+            }
+
+            let i = 0;
+            for(let entry of addr.entries()) {
+                assert.deepEqual(entry, [i, i + 10]);
+                ++i;
+            }
+            assert.equal(i, 8);
+        });
     });
 });
