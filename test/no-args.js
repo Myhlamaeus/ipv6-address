@@ -27,6 +27,10 @@ describe("Ipv6Address()", function() {
         assert.equal(String(addr), "0:0:0:0:0:0:0:0");
     });
 
+    it("should be :: when cast to short string", function() {
+        assert.equal(addr.toShortString(), "::");
+    });
+
     it("should allow to modify parts", function() {
         let arr = new Array(8).fill(0);
 
@@ -43,6 +47,11 @@ describe("Ipv6Address()", function() {
         for(let i = 0; i < 8; ++i) {
             addr[i] = arr[i] = i + 1;
             assert.equal(String(addr), arr.join(":"));
+            if(i === 7) {
+                assert.equal(addr.toShortString(), arr.join(":"));
+            } else {
+                assert.equal(addr.toShortString(), arr.slice(0, i + 1).join(":") + "::");
+            }
         }
         assert.equal(String(addr), "1:2:3:4:5:6:7:8");
     });
