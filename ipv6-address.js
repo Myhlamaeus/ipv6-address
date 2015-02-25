@@ -71,6 +71,28 @@ class Ipv6Address extends Uint16Array {
     get length() {
         return 8;
     }
+
+    * keys() {
+        for(let i = 0; i < this.length; ++i) {
+            yield i;
+        }
+    }
+
+    * values() {
+        for(let key of this.keys()) {
+            yield this[key];
+        }
+    }
+
+    * entires() {
+        for(let key of this.keys()) {
+            yield [key, this[key]];
+        }
+    }
+
+    * [Symbol.iterator]() {
+        return this.values();
+    }
 }
 
 function parseParts(parts) {
