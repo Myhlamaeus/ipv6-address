@@ -87,7 +87,7 @@ class Ipv6Address extends Uint16Array {
         }
     }
 
-    * [Symbol.iterator]() {
+    [Symbol.iterator]() {
         return this.values();
     }
 }
