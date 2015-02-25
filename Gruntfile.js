@@ -81,6 +81,19 @@ module.exports = function (grunt) {
         },
         "uglify": {
             "dist": {
+                "options": {
+                    "screwIE8": true
+                },
+                "files": {
+                    "dist/ipv6-address.min.js": "ipv6-address.js"
+                }
+            },
+            "distCjs": {
+                "files": {
+                    "dist/cjs.min.js": "dist/cjs.js"
+                }
+            },
+            "distBrowser": {
                 "files": {
                     "dist/browser.min.js": "dist/browser.js"
                 }
@@ -90,6 +103,7 @@ module.exports = function (grunt) {
 
     grunt.task.registerTask("test", ["jshint:all", "jshint:test", "mochaTest"]);
 
-    grunt.task.registerTask("build:cjs", ["babel:dist"]);
-    grunt.task.registerTask("build:browser", ["build:cjs", "browserify:dist", "uglify:dist"]);
+    grunt.task.registerTask("build:es6", ["uglify:dist"]);
+    grunt.task.registerTask("build:cjs", ["babel:dist", "uglify:distCjs"]);
+    grunt.task.registerTask("build:browser", ["babel:dist", "browserify:dist", "uglify:distBrowser"]);
 };
