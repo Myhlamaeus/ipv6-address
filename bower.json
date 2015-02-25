@@ -1,0 +1,23 @@
+{
+  "name": "ipv6-address",
+  "main": "ipv6-address.js",
+  "version": "0.0.0",
+  "homepage": "https://github.com/ileri/ipv6-address",
+  "authors": [
+    "Malte-Maurice Dreyer <dreyer.maltem+dev@gmail.com>"
+  ],
+  "moduleType": [
+    "amd",
+    "es6",
+    "globals",
+    "node"
+  ],
+  "license": "GPL-3.0",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
