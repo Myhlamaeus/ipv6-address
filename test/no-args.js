@@ -40,21 +40,6 @@ describe("Ipv6Address()", function() {
         assert.deepEqual(addr, [1, 2, 3, 4, 5, 6, 7, 8]);
     });
 
-    it("should correctly stringify when parts are modified", function() {
-        let arr = new Array(8).fill(0);
-
-        for(let i = 0; i < 8; ++i) {
-            addr[i] = arr[i] = i + 1;
-            assert.equal(String(addr), arr.join(":"));
-            if(i === 7) {
-                assert.equal(addr.toShortString(), arr.join(":"));
-            } else {
-                assert.equal(addr.toShortString(), arr.slice(0, i + 1).join(":") + "::");
-            }
-        }
-        assert.equal(String(addr), "1:2:3:4:5:6:7:8");
-    });
-
     it("should cut off numbers when to high (like Uint16Array)", function() {
         let arr = new Array(8).fill(0);
 
@@ -64,6 +49,34 @@ describe("Ipv6Address()", function() {
             assert.deepEqual(addr, arr);
         }
         assert.deepEqual(addr, [1, 2, 3, 4, 5, 6, 7, 8]);
+    });
+
+    describe("#toString()", function() {
+        it("should work when parts are modified", function() {
+            let arr = new Array(8).fill(0);
+
+            for(let i = 0; i < 8; ++i) {
+                addr[i] = arr[i] = i + 1;
+                assert.equal(addr.toString(), arr.join(":"));
+            }
+            assert.equal(addr.toString(), "1:2:3:4:5:6:7:8");
+        });
+    });
+
+    describe("#toShortString()", function() {
+        it("should work when parts are modified", function() {
+            let arr = new Array(8).fill(0);
+
+            for(let i = 0; i < 8; ++i) {
+                addr[i] = arr[i] = i + 1;
+                if(i === 7) {
+                    assert.equal(addr.toShortString(), arr.join(":"));
+                } else {
+                    assert.equal(addr.toShortString(), arr.slice(0, i + 1).join(":") + "::");
+                }
+            }
+            assert.equal(addr.toShortString(), "1:2:3:4:5:6:7:8");
+        });
     });
 
     describe("#keys()", function() {
