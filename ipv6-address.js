@@ -40,32 +40,29 @@ class Ipv6Address extends Uint16Array {
     toShortString() {
         let longestLength = 0,
             length = 0,
-            i = 0,
             longestStart,
             start;
 
-        for(let ele of this) {
-            if(ele === 0) {
+        for(let [key, val] of this.entries()) {
+            if(val === 0) {
                 if(!length) {
-                    start = i;
+                    start = key;
                 }
                 ++length;
-            } else {
-                if(length > longestLength) {
-                    longestStart = start;
-                    longestLength = length;
-                }
-
+            }
+            if(length > longestLength) {
+                longestStart = start;
+                longestLength = length;
+            }
+            if(val !== 0) {
                 length = 0;
             }
-
-            ++i;
         }
 
         if(typeof(longestStart) === "undefined") {
             return this.toString();
         }
-        return toString(this.slice(0, longestStart)) + "::" + toString(this.slice(longestStart + longestLength));
+        return toString(Array.prototype.slice.call(this, 0, longestStart)) + "::" + toString(Array.prototype.slice.call(this, longestStart + longestLength));
     }
 
     get length() {
