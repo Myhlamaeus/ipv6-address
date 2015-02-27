@@ -132,4 +132,8 @@ Ipv6Address.parse = function(str) {
     return new this(parseParts(parts));
 };
 
+Ipv6Address.from = function(arrLikeOrIterable) {
+    return new this(Array.from(arrLikeOrIterable));
+};
+
 export default Ipv6Address;
