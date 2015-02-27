@@ -1,34 +1,24 @@
+import ArrayLikeObjectWrapper from "array-like-object-wrapper";
+
 function toString(arr) {
     return Array.prototype.map.call(arr, function(ele) {
         return ele.toString(16);
     }).join(":");
 }
 
-class Ipv6Address extends Uint16Array {
+class Ipv6Address extends ArrayLikeObjectWrapper {
     constructor(iterable) {
-        let arr = new Uint16Array(this.length);
-
-        for(let i = 0; i < this.length; ++i) {
-            Object.defineProperty(this, i, {
-                get: function() {
-                    return arr[i];
-                },
-                set: function(val) {
-                    arr[i] = val;
-                },
-                enumerable: true,
-                configurable: true
-            });
-        }
+        let arr = new Uint16Array(8);
+        super(arr);
 
         if(iterable) {
             let i = 0;
 
             for(let val of iterable) {
-                if(i >= this.length) {
+                if(i >= arr.length) {
                     throw new RangeError("Ipv6Address: iterable is too long");
                 }
-                this[i++] = val >>> 0;
+                arr[i++] = val >>> 0;
             }
         }
     }
@@ -63,32 +53,6 @@ class Ipv6Address extends Uint16Array {
             return this.toString();
         }
         return toString(Array.prototype.slice.call(this, 0, longestStart)) + "::" + toString(Array.prototype.slice.call(this, longestStart + longestLength));
-    }
-
-    get length() {
-        return 8;
-    }
-
-    * keys() {
-        for(let i = 0; i < this.length; ++i) {
-            yield i;
-        }
-    }
-
-    * values() {
-        for(let key of this.keys()) {
-            yield this[key];
-        }
-    }
-
-    * entires() {
-        for(let key of this.keys()) {
-            yield [key, this[key]];
-        }
-    }
-
-    [Symbol.iterator]() {
-        return this.values();
     }
 }
 
