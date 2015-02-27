@@ -1,6 +1,6 @@
 {
   "name": "ipv6-address",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "ipv6-address",
   "main": "dist/cjs.js",
   "scripts": {
