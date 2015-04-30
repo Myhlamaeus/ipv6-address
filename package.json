@@ -1,28 +1,14 @@
 {
   "name": "ipv6-address",
-  "version": "0.2.0",
   "description": "ipv6-address",
-  "main": "dist/cjs.js",
-  "scripts": {
-    "test": "grunt test",
-    "prepublish": "grunt build:cjs"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ileri/ipv6-address.git"
-  },
-  "keywords": [
-    "ipv6 address",
-    "ipv6",
-    "ip",
-    "ip address"
-  ],
+  "version": "0.2.0",
   "author": "Malte-Maurice Dreyer <dreyer.maltem@gmail.com>",
-  "license": "GPL-3.0",
   "bugs": {
     "url": "https://github.com/ileri/ipv6-address/issues"
   },
-  "homepage": "https://github.com/ileri/ipv6-address",
+  "dependencies": {
+    "array-like-object-wrapper": "^0.1.0"
+  },
   "devDependencies": {
     "babel": "^4.4.6",
     "grunt": "^0.4.5",
@@ -36,7 +22,21 @@
     "mocha": "^2.1.0",
     "time-grunt": "^1.0.0"
   },
-  "dependencies": {
-    "array-like-object-wrapper": "^0.1.0"
+  "homepage": "https://github.com/ileri/ipv6-address",
+  "keywords": [
+    "ip",
+    "ip address",
+    "ipv6",
+    "ipv6 address"
+  ],
+  "license": "GPL-3.0",
+  "main": "dist/cjs.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ileri/ipv6-address.git"
+  },
+  "scripts": {
+    "prepublish": "grunt build:cjs",
+    "test": "grunt test"
   }
 }
