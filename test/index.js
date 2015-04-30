@@ -1,8 +1,8 @@
 /* jshint node: true */
 
-'use strict';
+'use strict'
 
-require('babel/register');
-['no-args'].map(function(file) {
+require('babel/register')
+;['no-args'].map(function (file) {
   return './' + file
 }).forEach(require)
