@@ -23,7 +23,7 @@
     "ipv6",
     "ipv6 address"
   ],
-  "license": "GPL-3.0",
+  "license": "MIT",
   "main": "dist/ipv6-address.js",
   "repository": {
     "type": "git",
