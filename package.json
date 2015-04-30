@@ -1,7 +1,7 @@
 {
   "name": "ipv6-address",
   "description": "ipv6-address",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "author": "Malte-Maurice Dreyer <dreyer.maltem+dev@gmail.com>",
   "bugs": {
     "url": "https://github.com/ileri/ipv6-address/issues"
