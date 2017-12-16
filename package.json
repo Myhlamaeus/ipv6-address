@@ -24,6 +24,9 @@
     "jest": "^21.0.0",
     "jest-cli": "^21.0.0"
   },
+  "engines": {
+    "node": ">=6"
+  },
   "scripts": {
     "prepublish": "nsp check",
     "pretest": "eslint .",
