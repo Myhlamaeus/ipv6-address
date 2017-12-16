@@ -1,6 +1,6 @@
 {
   "name": "ipv6-address",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "A single IPv6 address",
   "homepage": "https://github.com/Myhlamaeus/ipv6-address",
   "author": {
