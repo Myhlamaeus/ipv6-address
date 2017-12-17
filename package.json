@@ -61,6 +61,7 @@
   "license": "MIT",
   "dependencies": {
     "@std/esm": "^0.18.0",
+    "fixed-length-arrays": "^0.1.1",
     "left-pad": "^1.2.0",
     "needle-string": "^1.0.0"
   }
